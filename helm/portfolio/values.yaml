@@ -1,7 +1,7 @@
 # Default values. Override per-environment with values-dev.yaml,
 # values-staging.yaml, values-prod.yaml (same keys, different numbers).
 image:
-  repository: localhost:5001/portfolio-server
+  repository: ghcr.io/afnankhan55/portfolio-devops
   tag: "latest"
   pullPolicy: IfNotPresent
 
