@@ -7,7 +7,7 @@ WORKDIR /src
 
 # Copy dependency manifests first so Docker can cache this layer and skip
 # re-downloading modules when only application code changes.
-COPY go.mod ./
+COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
