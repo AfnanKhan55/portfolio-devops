@@ -1,0 +1,25 @@
+# Default values. Override per-environment with values-dev.yaml,
+# values-staging.yaml, values-prod.yaml (same keys, different numbers).
+image:
+  repository: localhost:5001/portfolio-server
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  className: nginx
+  host: portfolio.local
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 32Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi

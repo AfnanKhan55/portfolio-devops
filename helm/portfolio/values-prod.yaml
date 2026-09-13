@@ -1,0 +1,12 @@
+# Only the differences from values.yaml need to go here. This is the file
+# Argo CD points at for the "prod" environment.
+replicaCount: 3
+ingress:
+  host: portfolio.example.com
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi

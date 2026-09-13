@@ -1,0 +1,14 @@
+# A Service gives the shifting set of pods one stable internal address/name
+# ("portfolio-server") so nothing else has to track individual pod IPs.
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-server
+  namespace: portfolio
+spec:
+  selector:
+    app: portfolio-server
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: ClusterIP

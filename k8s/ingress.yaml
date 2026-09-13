@@ -1,0 +1,22 @@
+# An Ingress is the front door: it takes external HTTP traffic and routes
+# it, by hostname, to the right internal Service.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portfolio-server
+  namespace: portfolio
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: portfolio.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-server
+                port:
+                  number: 80

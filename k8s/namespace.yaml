@@ -1,0 +1,6 @@
+# A namespace just gives this app its own "folder" inside the cluster so
+# its resources don't collide with anything else running there.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: portfolio

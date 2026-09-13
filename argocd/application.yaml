@@ -1,0 +1,29 @@
+# This is the ONLY thing you apply by hand (once). After that, Argo CD
+# watches the Git repo below and keeps the cluster in sync with it forever —
+# every commit to helm/portfolio automatically becomes a deployment.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: portfolio
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/AfnanKhan55/portfolio-devops.git
+    targetRevision: main
+    path: helm/portfolio
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: portfolio
+
+  syncPolicy:
+    automated:
+      prune: true    # delete resources removed from Git
+      selfHeal: true # if someone manually edits the cluster, revert it
+    syncOptions:
+      - CreateNamespace=true
