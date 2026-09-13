@@ -1,7 +1,7 @@
 # ---- Stage 1: build ---------------------------------------------------
 # Uses the full Go toolchain to compile a static binary. This image is
 # ~800MB but it NEVER ships — it's discarded after the build finishes.
-FROM golang:1.22-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 WORKDIR /src
 
