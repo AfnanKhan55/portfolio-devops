@@ -11,6 +11,7 @@ import (
 
 	"github.com/AfnanKhan55/portfolio-devops/internal/db"
 	"github.com/AfnanKhan55/portfolio-devops/internal/handlers"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func main() {
@@ -41,10 +42,11 @@ func main() {
 	mux.HandleFunc("/healthz", handlers.HealthCheck(start))
 	mux.HandleFunc("/version", handlers.VersionHandler)
 	mux.HandleFunc("/visits", handlers.VisitsHandler(conn))
+	mux.Handle("/metrics", promhttp.Handler())
 
 	srv := &http.Server{
 		Addr:         ":" + port,
-		Handler:      handlers.WithLogging(mux),
+		Handler:      handlers.WithLogging(handlers.WithMetrics(mux)),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
