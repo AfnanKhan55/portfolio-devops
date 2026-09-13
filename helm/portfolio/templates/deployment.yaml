@@ -20,6 +20,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.targetPort }}
+          env:
+            - name: DATABASE_URL
+              value: "postgres://portfolio:portfolio@postgres:5432/portfolio?sslmode=disable"
           readinessProbe:
             httpGet:
               path: /healthz
