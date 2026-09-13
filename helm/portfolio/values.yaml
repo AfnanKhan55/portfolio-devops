@@ -3,7 +3,7 @@
 image:
   repository: ghcr.io/afnankhan55/portfolio-devops
   tag: "latest"
-  pullPolicy: Always 
+  pullPolicy: IfNotPresent 
 
 replicaCount: 3
 

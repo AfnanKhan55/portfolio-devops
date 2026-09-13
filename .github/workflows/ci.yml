@@ -10,7 +10,7 @@ jobs:
   build-test-push:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
       - name: Checkout code
@@ -19,14 +19,14 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.22"
+          go-version: "1.25"
           cache: true
 
       - name: go vet
         run: go vet ./...
 
       - name: Run tests
-        run: go test ./... -v 
+        run: go test ./... -v
 
       - name: Build binary
         run: go build ./...
@@ -38,8 +38,7 @@ jobs:
         run: |
           docker build \
             --build-arg VERSION=${{ github.run_number }} \
-            -t ghcr.io/${{ env.REPO_LC }}:${{ github.run_number }} \
-            -t ghcr.io/${{ env.REPO_LC }}:latest .
+            -t ghcr.io/${{ env.REPO_LC }}:${{ github.run_number }} .
 
       - name: Log in to GHCR
         if: github.ref == 'refs/heads/main'
@@ -53,4 +52,13 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           docker push ghcr.io/${{ env.REPO_LC }}:${{ github.run_number }}
-          docker push ghcr.io/${{ env.REPO_LC }}:latest
+
+      - name: Update Helm values with new image tag
+        if: github.ref == 'refs/heads/main'
+        run: |
+          sed -i "s/tag: .*/tag: \"${{ github.run_number }}\"/" helm/portfolio/values.yaml
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add helm/portfolio/values.yaml
+          git commit -m "ci: deploy image ${{ github.run_number }}" || echo "no changes to commit"
+          git push
