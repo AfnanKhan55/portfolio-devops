@@ -31,12 +31,15 @@ jobs:
       - name: Build binary
         run: go build ./...
 
+      - name: Set lowercase repo name
+        run: echo "REPO_LC=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build Docker image
         run: |
           docker build \
             --build-arg VERSION=${{ github.run_number }} \
-            -t ghcr.io/${{ github.repository }}:${{ github.run_number }} \
-            -t ghcr.io/${{ github.repository }}:latest .
+            -t ghcr.io/${{ env.REPO_LC }}:${{ github.run_number }} \
+            -t ghcr.io/${{ env.REPO_LC }}:latest .
 
       - name: Log in to GHCR
         if: github.ref == 'refs/heads/main'
@@ -49,5 +52,5 @@ jobs:
       - name: Push image
         if: github.ref == 'refs/heads/main'
         run: |
-          docker push ghcr.io/${{ github.repository }}:${{ github.run_number }}
-          docker push ghcr.io/${{ github.repository }}:latest
+          docker push ghcr.io/${{ env.REPO_LC }}:${{ github.run_number }}
+          docker push ghcr.io/${{ env.REPO_LC }}:latest
