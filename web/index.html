@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afnan Khan | Cloud DevSecOps & Security Automation Specialist</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:#e2e8f0;
+    overflow-x:hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track{
+    background:#0f172a;
+}
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#f97316,#ec4899);
+    border-radius:20px;
+}
+
+/* Navbar */
+.navbar{
+    background:rgba(15,23,42,0.85);
+    backdrop-filter:blur(12px);
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index: 1030;
+}
+.navbar-brand{
+    color:#f97316 !important;
+    font-size:26px;
+    font-weight:800;
+}
+.nav-link{
+    color:#e5e7eb !important;
+    margin-left:18px;
+    font-weight:500;
+    transition:0.3s;
+}
+.nav-link:hover{
+    color:#f97316 !important;
+}
+
+/* Hero Section */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background: 
+        radial-gradient(circle at top left,#f9731620,transparent 35%),
+        radial-gradient(circle at bottom right,#ec489920,transparent 35%),
+        linear-gradient(135deg, rgba(15,23,42,0.9), rgba(17,24,39,0.95)),
+        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920') no-repeat center center/cover;
+    padding: 120px 0 60px 0;
+}
+.hero h1{
+    font-size:52px;
+    font-weight:800;
+    line-height:1.2;
+}
+.hero h1 span{
+    background:linear-gradient(90deg,#f97316,#ec4899);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.hero p{
+    margin-top:20px;
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:16px;
+}
+.hero-buttons{
+    margin-top:35px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.btn-main{
+    background:linear-gradient(90deg,#f97316,#ec4899);
+    color:white;
+    padding:12px 26px;
+    border-radius:50px;
+    border:none;
+    font-weight:600;
+    display:inline-block;
+    transition:0.4s;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(249,115,22,0.3);
+}
+.btn-main:hover{
+    transform:translateY(-3px);
+    color:white;
+}
+.btn-outline-custom{
+    border:2px solid #f97316;
+    color:#f97316;
+    padding:10px 26px;
+    border-radius:50px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.4s;
+    display: inline-block;
+}
+.btn-outline-custom:hover{
+    background:#f97316;
+    color:white;
+    transform:translateY(-3px);
+}
+.btn-outline-resume{
+    border:2px solid #ec4899;
+    color:#ec4899;
+    padding:10px 26px;
+    border-radius:50px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.4s;
+    display: inline-block;
+}
+.btn-outline-resume:hover{
+    background:#ec4899;
+    color:white;
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(236,72,153,0.3);
+}
+
+.hero-profile-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 480px;
+    border-radius: 24px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 35px rgba(249,115,22,0.25));
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.hero-profile-img:hover {
+    transform: scale(1.02);
+}
+
+/* Sections */
+section{
+    padding:80px 0;
+}
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+.section-title h2{
+    font-size:38px;
+    font-weight:800;
+    color:white;
+}
+.section-title p{
+    margin-top:10px;
+    color:#94a3b8;
+}
+
+/* Skills Layout Box */
+.skills-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+    text-align: left;
+}
+.skills-grid-list {
+    margin-top: 20px;
+}
+.skills-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.skills-item:last-child {
+    border-bottom: none;
+}
+.skills-item strong {
+    color: #fff;
+    font-size: 16px;
+}
+.skills-tools {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-top: 4px;
+    padding-left: 28px;
+}
+
+/* Video Containers */
+.video-wrapper {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Simplified Project Layout - Full Uncropped Image View */
+.simplified-project-card {
+    background: #111827;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.simplified-project-card:hover {
+    border-color: #f97316;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(249,115,22,0.12);
+}
+.project-media-container {
+    background: #090d16;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.project-media-container img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain; /* Shows full uncropped image */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.project-media-container img:hover {
+    opacity: 0.9;
+}
+.project-body-container {
+    padding: 30px;
+}
+.project-body-container h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+.project-body-container p {
+    color: #cbd5e1;
+    font-size: 14.5px;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.tag{
+    display:inline-block;
+    background:rgba(249,115,22,0.12);
+    color:#fb923c;
+    border:1px solid rgba(249,115,22,0.2);
+    padding:4px 10px;
+    border-radius:30px;
+    margin:3px;
+    font-size:11px;
+    font-weight:500;
+}
+
+/* Proof Images clickable */
+.proof-img {
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #1e293b;
+    cursor: pointer;
+}
+.proof-img:hover {
+    transform: scale(1.04);
+    border-color: #ec4899;
+}
+
+/* Timeline */
+.timeline{
+    position:relative;
+    margin-left:20px;
+}
+.timeline::before{
+    content:'';
+    position:absolute;
+    width:3px;
+    height:100%;
+    left:0;
+    top:0;
+    background:linear-gradient(#f97316,#ec4899);
+}
+.timeline-item{
+    position:relative;
+    padding-left:30px;
+    margin-bottom:45px;
+}
+.timeline-item::before{
+    content:'';
+    position:absolute;
+    width:16px;
+    height:16px;
+    background:#f97316;
+    border-radius:50%;
+    left:-7px;
+    top:5px;
+    box-shadow:0 0 15px rgba(249,115,22,0.5);
+}
+.timeline-item h4{
+    font-weight:700;
+    color:white;
+    font-size:18px;
+}
+.timeline-item span{
+    color:#fb923c;
+    font-size:13.5px;
+}
+.timeline-item p{
+    margin-top:10px;
+    color:#cbd5e1;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* Contact */
+.contact-box{
+    background:#111827;
+    border-radius:20px;
+    text-align:center;
+    padding:30px;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.4s;
+    height: 100%;
+}
+.contact-box:hover{
+    transform:translateY(-5px);
+    border-color:#ec4899;
+    box-shadow:0 12px 30px rgba(236,72,153,0.15);
+}
+.contact-box i{
+    font-size:40px;
+    color:#f97316;
+    margin-bottom:15px;
+}
+.contact-box h4{
+    color:white;
+    margin-bottom:10px;
+    font-size:18px;
+}
+.contact-box p{
+    color:#cbd5e1;
+    font-size:14px;
+    margin-bottom: 0;
+    word-break: break-all;
+}
+
+footer{
+    padding:25px 0;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#94a3b8;
+    background:#0f172a;
+    font-size:13.5px;
+}
+
+/* Lightbox Styles */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+.lightbox-img {
+    max-width: 92%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.6);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+.lightbox-overlay.active .lightbox-img {
+    transform: scale(1);
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 0.2s;
+    line-height: 1;
+}
+.lightbox-close:hover {
+    color: #f97316;
+}
+
+/* Comprehensive Mobile Adjustments */
+@media(max-width:768px){
+    section { padding: 60px 0; }
+    .navbar-brand { font-size: 22px; }
+    .hero h1{ font-size:34px; }
+    .section-title h2{ font-size:28px; }
+    .hero{ text-align: center; padding: 110px 0 50px 0; }
+    .hero-buttons{ justify-content: center; }
+    .hero-profile-img { max-height: 340px; margin-top: 30px; }
+    .skills-card { padding: 20px; }
+    .project-body-container { padding: 20px; }
+    .project-media-container { padding: 10px; }
+    .project-media-container img { max-height: 260px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Lightbox Element -->
+<div class="lightbox-overlay" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img src="" class="lightbox-img" id="lightboxImg" alt="Enlarged View">
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">AFNAN KHAN</a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About & Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#interview">Presentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Engineering Portfolios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bounty">Security Validation</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Journey</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <h1>
+                    Cloud DevSecOps <br>
+                    <span>Engineer & Security Specialist</span>
+                </h1>
+                <p>
+                    <strong>leveraging Generative & Agentic AI</strong><br>
+                    Validated security researcher credited by <strong>Zoho, Dropbox, and Atlassian</strong> for critical Access Control disclosures.
+                </p>
+                <div class="hero-buttons">
+                    <a href="afnanresume2.pdf" target="_blank" class="btn-outline-resume">
+                        <i class="fa-solid fa-file-pdf"></i> Resume
+                    </a>
+                    <a href="https://github.com/AfnanKhan55/AWS-DEVOPS-PROJECTS.git" target="_blank" class="btn-main">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="http://www.linkedin.com/in/afnan-khan-a062b322b" target="_blank" class="btn-outline-custom">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center" data-aos="fade-left">
+                <img src="2.png" 
+                     class="img-fluid hero-profile-img lightbox-trigger" 
+                     alt="Afnan Khan Professional Profile Clear Display">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About & Skills Section -->
+<section id="about">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>About & Technical Skillset</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-11 text-center">
+                <p class="lead text-light mb-4">
+                    Generative and Agentic AI specialist infusing intelligent workflows into Cloud DevSecOps to orchestrate highly secure cloud ecosystems.
+                </p>
+
+                <!-- Restructured Emoji-Rich Technical Skillset Panel -->
+                <div class="skills-card text-start" data-aos="fade-up">
+                    <h4 class="text-white mb-4" style="font-weight:700; border-left:4px solid #f97316; padding-left:15px;">Core Areas I Work In:</h4>
+                    
+                    <div class="skills-grid-list">
+                        <div class="skills-item">
+                            ✅ <strong> Security </strong> – Bug Bounty (BROKEN ACCESS CONTROL SPECIALIST), WSTG, Web Pentesting, DevSecOps, Security Automation, Vulnerability Management, ISO 27001/17/18, NIST CSF, CISSP, CIS Top 20, SCADA/ICS (ISO 27109), Incident Response, HIPAA & PCI-DSS compliance⁣
+                            <div class="skills-tools">➡️ Tools: Istio, SPIRE, SPIFFE, OPA, HashiCorp Vault⁣</div>
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐂𝐥𝐨𝐮𝐝 𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐢𝐞𝐬</strong> – Deep dive in AWS (EC2, Lambda, EKS, IAM, CloudTrail, GuardDuty, etc.), plus experience with Azure & GCP⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐎𝐩𝐞𝐫𝐚𝐭𝐢𝐧𝐠 𝐒𝐲𝐬𝐭𝐞𝐦𝐬</strong> – RHEL, CentOS, Ubuntu, Kali Linux⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐂ontaine𝐫𝐢𝐳𝐚𝐭𝐢𝐨𝐧 & 𝐎𝐫𝐜𝐡𝐞𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧</strong> – Docker, Kubernetes, Red Hat OpenShift⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐂𝐈/𝐂𝐃 𝐏𝐢𝐩𝐞𝐥𝐢𝐧𝐞 𝐀𝐮𝐭𝐨𝐦𝐚𝐭𝐢𝐨𝐧</strong> – GitHub Actions, Jenkins, GitLab CI/CD, AWS CodePipeline⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐈𝐧𝐟𝐫𝐚𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 𝐚𝐬 𝐂𝐨𝐝𝐞 (𝐈𝐚𝐂)</strong> – Terraform, AWS CloudFormation⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭</strong> – Ansible⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐕𝐞𝐫𝐬𝐢𝐨𝐧 𝐂𝐨𝐧𝐭𝐫𝐨𝐥</strong> – Git, GitHub⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐌𝐨𝐧𝐢𝐭𝐨𝐫𝐢𝐧𝐠 & 𝐋𝐨𝐠𝐠𝐢𝐧𝐠</strong> – Prometheus, ELK Stack, SIEM, Grafana, Fluentbit, Loki⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐒𝐜𝐫𝐢𝐩𝐭𝐢𝐧𝐠 & 𝐀𝐮𝐭𝐨𝐦𝐚𝐭𝐢𝐨𝐧</strong> – Python, Bash, Selenium⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐀𝐈 & 𝐌𝐚𝐜𝐡𝐢𝐧𝐞 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠</strong> – Python for ML, Deep Learning, Model Deployment, NLP, Computer Vision⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐕𝐢𝐫𝐭𝐮𝐚𝐥𝐢𝐳𝐚𝐭𝐢𝐨𝐧 & 𝐈𝐧𝐟𝐫𝐚𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞</strong> – Vagrant⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐏𝐫𝐨𝐣𝐞𝐜𝐭 & 𝐖𝐨𝐫𝐤𝐟𝐥𝐨𝐰 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭</strong> – JIRA (with Python integration)⁣
+                        </div>
+                        <div class="skills-item">
+                            ✅ <strong>𝐓𝐞𝐚𝐦𝐰𝐨𝐫𝐤 & 𝐂𝐨𝐥𝐥𝐚𝐛𝐨𝐫𝐚𝐭𝐢𝐨𝐧</strong> – Agile, cross-functional collaboration⁣
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EduQual Scotland UK Live Interview Defense Block -->
+<section id="interview" style="background: #0b0f19;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Project Defense & Interview</h2>
+            <p>EduQual Scotland, UK BSc Level 6 Presentation & Professional Verification Evaluation</p>
+        </div>
+        <div class="row justify-content-center" data-aos="zoom-in">
+            <div class="col-lg-9">
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/iVsIEfcmHy0" title="Al Nafi Technical Presentation Defense Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="text-center mt-4">
+                        <p class="text-secondary mb-0" style="font-size:14px;">
+                            <i class="fa-solid fa-circle-check text-success me-2"></i> Afnan Khan's Interview  
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Detailed Projects Section -->
+<section id="projects" style="background: #0b0f19;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Featured Infrastructure Deployments</h2>
+            <p>Deep-dive engineering portfolios showing architectural mechanics and execution proofs</p>
+        </div>
+        <div class="row justify-content-center">
+            
+            <!-- Project 1 -->
+            <div class="col-lg-10" data-aos="fade-up">
+                <div class="simplified-project-card">
+                    <div class="project-media-container">
+                        <img src="1000128008.jpg" class="lightbox-trigger" alt="Multi-Cloud Zero Trust Architecture Diagram">
+                    </div>
+                    <div class="project-body-container">
+                        <h4>Multi-Cloud Zero Trust Architecture for Healthcare Systems Using Istio, SPIRE, and HashiCorp Vault on Azure and GCP</h4>
+                        <p class="mb-3">𝐛𝐞𝐫𝐨 𝐓𝐫𝐮𝐬𝐭 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲: Implemented a comprehensive zero-trust model. This included configuring an 𝐈𝐬𝐭𝐢𝐨 𝐬𝐞𝐫𝐯𝐢𝐜𝐞 𝐦𝐞𝐬𝐡 with 𝐒𝐏𝐈𝐑𝐄 for workload authentication and leveraging 𝐇𝐚𝐬𝐡𝐢𝐂𝐨𝐫𝐩 𝐕𝐚𝐮𝐥𝐭 for dynamic secrets management. ⁣
+⁣
+𝐌𝐮𝐥𝐭𝐢-𝐂𝐥𝐨υ𝐝 𝐈𝐦𝐩𝐥𝐞𝐦𝐞𝐧𝐭𝐚𝐭𝐢𝐨𝐧: Deployed the architecture across both 𝐀𝐳𝐮𝐫𝐞 𝐊𝐮𝐛𝐞𝐫𝐧𝐞𝐭𝐞𝐬 𝐒𝐞𝐫𝐯𝐢𝐜𝐞 (𝐀𝐊𝐒) and 𝐆𝐨𝐨𝐠𝐥𝐞 𝐊𝐮𝐛𝐞𝐫𝐧𝐞𝐭𝐞𝐬 𝐄𝐧𝐠𝐢𝐧𝐞 (𝐆𝐊𝐄), demonstrating the ability to create a secure multi-cloud environment.⁣
+⁣
+𝐏𝐨𝐥𝐢𝐜𝐲 𝐚𝐧𝐝 𝐀𝐜𝐜𝐞𝐬𝐬 𝐂𝐨𝐧𝐭𝐫𝐨𝐥: Enforced the principle of least privilege through the use of 𝐎𝐩𝐞𝐧 𝐏𝐨𝐥𝐢𝐜𝐲 𝐀𝐠𝐞𝐧𝐭 (𝐎𝐏𝐀) and Rego policies for fine-grained access control. ⁣
+⁣
+𝐀𝐮𝐭𝐨𝐦𝐚𝐭𝐢𝐨𝐧 𝐚𝐧𝐝 𝐈𝐧𝐟𝐫𝐚𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 𝐚𝐬 𝐂𝐨𝐝𝐞 (𝐈𝐚𝐂): Utilized 𝐓𝐞𝐫𝐫𝐚𝐟𝐨𝐫𝐦 and 𝐇𝐞𝐥𝐦 for the provisioning and management of the service mesh across both cloud platforms, ensuring consistency and repeatability.⁣
+⁣
+𝐂𝐨𝐦𝐩𝐥𝐢𝐚𝐧𝐜𝐞 𝐚𝐧𝐝 𝐀𝐮𝐝𝐢𝐭𝐢𝐧𝐠: Demonstrated compliance with 𝐇𝐈𝐏𝐀𝐀 and 𝐈𝐒𝐎/𝐈𝐄𝐂 𝟐𝟕𝟕𝟗𝟗 standards. This was achieved through the implementation of automated evidence collection and audit trails, including the use of 𝐅𝐥𝐮𝐞𝐧𝐭 𝐁𝐢𝐭 and 𝐋𝐨𝐤𝐢 for mTLS handshake audits. ⁣
+⁣
+𝐌𝐨𝐧𝐢𝐭𝐨𝐫𝐢𝐧𝐠 𝐚𝐧𝐝 𝐎𝐛𝐬𝐞𝐫𝐯𝐚𝐛𝐢𝐥𝐢𝐭𝐲: Established a robust monitoring and logging pipeline using 𝐏𝐫𝐨𝐦𝐞𝐭𝐡𝐞𝐮𝐬 for metrics and 𝐆𝐫𝐚𝐟𝐚𝐧𝐚 for visualization, providing deep visibility into the security and performance of the system.⁣</p>
+                        <div class="pt-2 border-top border-secondary-subtle">
+                            <span class="tag">Istio</span> <span class="tag">SPIRE</span> <span class="tag">HashiCorp Vault</span> <span class="tag">AKS</span> <span class="tag">GKE</span> <span class="tag">Terraform</span> <span class="tag">OPA</span> <span class="tag">Fluent Bit</span> <span class="tag">Loki</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-lg-10" data-aos="fade-up">
+                <div class="simplified-project-card">
+                    <div class="project-media-container">
+                        <img src="project2.webp" class="lightbox-trigger" alt="Enterprise GitOps Orchestration Architecture">
+                    </div>
+                    <div class="project-body-container">
+                        <h4>Enterprise GitOps & Hybrid CI/CD Orchestration on AWS EKS with Jenkins, ArgoCD, and Stateful Storage</h4>
+                        <p class="mb-3">The CI/CD Flow: When a developer pushes code from VS Code to the GitHub repository, an automated webhook triggers a dedicated Jenkins Server. Jenkins containerizes the application using Docker, uploads the immutable image to Amazon ECR, and commits the updated manifest metadata back to a GitOps repository.
+
+The GitOps Engine: ArgoCD operates inside the Amazon EKS (Elastic Kubernetes Service) cluster, continuously polling the Git repository. It identifies configuration shifts and pulls down the changes into EKS, executing a zero-downtime rolling update.
+
+Workload & Storage Architecture: Public internet traffic routes securely via Route 53 and AWS Certificate Manager (ACM) to an Ingress Application Load Balancer (ALB). The EKS cluster segregates processing layers into a stateless Application Service (managed via Deployments) and a data layer running a StatefulSet. The database pods achieve persistent data safety via Persistent Volume Claims (PVC) mapped to a custom StorageClass backed by Amazon EFS (Elastic File System).
+
+Observability Stack: Comprehensive infrastructure telemetry and log aggregation are managed by a centralized Prometheus and Grafana cluster. It scrapes cluster components through explicit Kubernetes Role Bindings and monitors Jenkins pipeline health, triggering immediate email alerts to system administrators if any anomalies occur.</p>
+                        <div class="pt-2 border-top border-secondary-subtle">
+                            <span class="tag">AWS EKS</span> <span class="tag">Jenkins</span> <span class="tag">ArgoCD</span> <span class="tag">Amazon ECR</span> <span class="tag">Amazon EFS</span> <span class="tag">Route 53</span> <span class="tag">Prometheus</span> <span class="tag">Grafana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-lg-10" data-aos="fade-up">
+                <div class="simplified-project-card">
+                    <div class="project-media-container">
+                        <img src="project4.png" class="lightbox-trigger" alt="Multi-Tier React & FastAPI Infrastructure Display">
+                    </div>
+                    <div class="project-body-container">
+                        <h4>Multi-Tier React & FastAPI Microservice Architecture on Azure Kubernetes Service (AKS) via Automated Cloud Infrastructure</h4>
+                        <p class="mb-3">Infrastructure Automation: Terraform is used to programmatically spin up and configure the cloud infrastructure, specifically building the underlying virtual network boundaries and provisioning an Azure VM Self-Hosted Agent to run isolated CI/CD tasks safely.
+
+The Deployment Pipeline: Code pushes to GitHub automatically sync with Azure Repos, triggering the self-hosted runner. The pipeline executes rigorous code analysis and Static Application Security Testing (SAST) via SonarQube to block vulnerabilities and technical debt before compilation. Once passed, the images are built, pushed to Azure Container Registry (ACR), and seamlessly rolled out into Azure Kubernetes Service (AKS).
+
+Data & Persistence Layer: The decoupled FastAPI backend interacts with Azure Cosmos DB, utilizing its globally distributed, low-latency multi-model engine to manage fast application data storage and retrieval securely.
+
+Full-Stack Observability: Pods inside the AKS cluster transmit real-time operational and system health metrics directly to Prometheus. These data points feed into custom Grafana dashboards, equipping engineering teams with clear visibility into application response rates, cluster resource utilization, and database connectivity.</p>
+                        <div class="pt-2 border-top border-secondary-subtle">
+                            <span class="tag">Terraform</span> <span class="tag">AKS</span> <span class="tag">Azure Cosmos DB</span> <span class="tag">SonarQube</span> <span class="tag">ACR</span> <span class="tag">Prometheus</span> <span class="tag">Grafana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Extended Registry Summary Indexing -->
+        <div class="mt-5 p-4 rounded-4" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);" data-aos="fade-up">
+            <h4 class="text-white mb-3"><i class="fa-solid fa-folder-tree text-warning me-2"></i>Extended Infrastructure Operations Index (50+ Live Configurations)</h4>
+            <p class="text-secondary small">
+                Beyond my core flagship platforms, my active development history features over 50 specific automation blueprints documented in my project logs and LinkedIn history, categorized below:
+            </p>
+            <div class="row g-3 text-secondary" style="font-size:13px;">
+                <div class="col-md-6">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><b class="text-light">[Ref 01-15] Serverless Runbooks:</b> AWS Lambda background optimization flows, EventBridge resource tracking scripts.</li>
+                        <li class="mb-2"><b class="text-light">[Ref 16-28] Multi-Cloud Code:</b> Declarative system orchestration setups using modular Terraform components.</li>
+                        <li><b class="text-light">[Ref 29-38] Distributed Telemetry:</b> Prometheus scraping modules linked to customized Grafana visibility layers.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><b class="text-light">[Ref 39-44] Guardrail Verification:</b> Automated continuous security testing, vulnerability checks, and secret scanners inside build pipelines.</li>
+                        <li class="mb-2"><b class="text-light">[Ref 45-52] State Control Code:</b> Standard system hardening configurations managed through Ansible task playbooks.</li>
+                        <li><b class="text-light">[Ref 53+] Operational Intelligence:</b> Secure container pipeline automation templates monitoring agent loops.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bug Bounty Validation & Hall of Fame -->
+<section id="bounty" style="background: #0b0f19;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Vulnerability Research Validation</h2>
+            <p>Defensive verification proofs and verified elite platform acknowledgments</p>
+        </div>
+        <div class="row text-center mb-5 justify-content-center">
+            <div class="col-lg-9">
+                <p class="text-light">
+                    As an active security hunter, I test real-world application boundaries. My structural focus centers on uncovering critical **Broken Access Control (BAC)** parameters and configuration bypass flaws, resulting in formal security validation listings from global organizations:[cite: 2]
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <!-- Proof Asset Card 1 -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in">
+                <div class="text-center">
+                    <img src="zoho hof.png" class="proof-img mb-3 lightbox-trigger" alt="Zoho Corporation Validation Listing">
+                    <h5 class="text-white mb-1">Zoho Corporation Validation</h5>
+                    <p class="text-secondary small">Verified listing inclusion following secure bug reporting validation.</p>
+                </div>
+            </div>
+            <!-- Proof Asset Card 2 -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="text-center">
+                    <img src="trello.png" class="proof-img mb-3 lightbox-trigger" alt="Atlassian Trello Security Bounty Proof">
+                    <h5 class="text-white mb-1">Atlassian Ecosystem Penetration</h5>
+                    <p class="text-secondary small">Structural access flaws analyzed across target application logic.</p>
+                </div>
+            </div>
+            <!-- Proof Asset Card 3 -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="text-center">
+                    <img src="dropbox11.png" class="proof-img mb-3 lightbox-trigger" alt="Dropbox Reward Payout Statement">
+                    <h5 class="text-white mb-1">Dropbox Inc. Disclosure</h5>
+                    <p class="text-secondary small">Vulnerability submission validated and closed under disclosure rules.</p>
+                </div>
+            </div>
+            <!-- Proof Asset Card 4 -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="text-center">
+                    <img src="zoho_bounties.png" class="proof-img mb-3 lightbox-trigger" alt="Bug Bounty Payout Dashboard Proof">
+                    <h5 class="text-white mb-1">Bounty Payout Records</h5>
+                    <p class="text-secondary small">Financial validation reward transactions showing closed security classifications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience & Education Journey Section -->
+<section id="experience">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Experience & Education</h2>
+        </div>
+        <div class="row">
+            <!-- Timeline Item -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>DevOps Engineer</h4>
+                        <span>Al Nafi Cloud| 12/2023 - 7/2025</span>
+                        <p>Automated hybrid cloud pipelines via AWS CodePipeline, GitHub Actions, and GitLab structures. Coded modular multi-tier environments using Infrastructure as Code tools and applied structural validation components directly to cluster runtimes.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>DevSecOps Engineer</h4>
+                        <span>SourceCode Academia | 3 months project 9,10,11/2025</span>
+                        <p>Identified severe access control flaws during infrastructure security assessments, successfully mitigating high-consequence risks of permanent account destruction and mass profile modification.[cite: 2]</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Lead Security Architect</h4>
+                        <span>GRNZ Tech 10/2025 - 5/2026</span>
+                        <p>Lead Security Architect spearheading R&D, strategic planning, and team organization to deliver enterprise-grade web application security testing for corporate clients.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Education Box -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>EduQual Scotland, UK — RQF Level 6</h4>
+                        <span>BSc Equivalent Diploma in AIOps (Artificial Intelligence Operations)</span>
+                        <p>Completed an intensive AIOps program mastering the integration of AI intelligence across Cloud architecture, DevOps pipelines, and infrastructure security.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-4 mt-2" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                    <h5 class="text-white mb-3"><i class="fa-solid fa-award text-warning me-2"></i>Verified Platform Credentials</h5>
+                    <ul class="list-unstyled mb-0 text-secondary" style="font-size:14px; line-height:2;">
+                        <li><i class="fa-solid fa-circle-check text-success me-2"></i> <b>3x AWS Certified</b> Professional Track Badges</li>
+                        <li><i class="fa-solid fa-circle-check text-success me-2"></i> <b>1x Google Cloud Certified</b> Professional Badges</li>
+                        <li><i class="fa-solid fa-circle-check text-success me-2"></i> Active Security Verified Tracker Credentials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" style="background: #0b0f19;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Connect With Me</h2>
+            <p>Available for advanced consulting, remote DevOps engineering roles, and system security reviews</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4">
+                <div class="contact-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h4>Email Connection</h4>
+                    <p><a href="mailto:afnan.khan.niazi55@gmail.com" class="text-decoration-none text-info">afnan.khan.niazi55@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-box">
+                    <i class="fab fa-linkedin"></i>
+                    <h4>Professional Network</h4>
+                    <p><a href="http://www.linkedin.com/in/afnan-khan-a062b322b" target="_blank" class="text-decoration-none text-info">linkedin.com/in/afnan-khan</a></p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-box">
+                    <i class="fab fa-github"></i>
+                    <h4>Code Repositories</h4>
+                    <p><a href="https://github.com/AfnanKhan55" target="_blank" class="text-decoration-none text-info">github.com/AfnanKhan55</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        © 2026 Afnan Khan • Cloud DevSecOps Engineer • Security Specialist. All Rights Reserved.
+    </div>
+</footer>
+
+<!-- JS Delivery Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // Lightbox Functionality logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            lightboxImg.src = trigger.src;
+            lightbox.classList.add('active');
+        });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg && e.target !== lightboxClose) {
+            lightbox.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
