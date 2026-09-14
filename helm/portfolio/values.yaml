@@ -2,7 +2,7 @@
 # values-staging.yaml, values-prod.yaml (same keys, different numbers).
 image:
   repository: ghcr.io/afnankhan55/portfolio-devops
-  tag: "16"
+  tag: "17"
   pullPolicy: IfNotPresent 
 
 replicaCount: 3
