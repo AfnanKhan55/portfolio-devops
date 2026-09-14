@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ .Release.Name }}-alerts
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: portfolio.rules
+      rules:
+        - alert: PortfolioPodDown
+          expr: kube_deployment_status_replicas_available{deployment="{{ .Release.Name }}-server"} < 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Portfolio server has no available pods"
+            description: "The {{ .Release.Name }}-server deployment has had 0 available replicas for over a minute."
