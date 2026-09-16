@@ -22,7 +22,7 @@ spec:
             - containerPort: {{ .Values.service.targetPort }}
           env:
             - name: DATABASE_URL
-              value: "postgres://portfolio:portfolio@postgres-broken:5432/portfolio?sslmode=disable"
+              value: "postgres://portfolio:portfolio@postgres:5432/portfolio?sslmode=disable"
           readinessProbe:
             httpGet:
               path: /healthz
