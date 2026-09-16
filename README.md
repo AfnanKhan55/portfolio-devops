@@ -64,5 +64,3 @@ Alertmanager capturing active triggers across the namespace and firing email ale
 ---
 
 
-# Create Kind cluster with registry configuration
-kind create cluster --config k8s/kind-config.yaml
